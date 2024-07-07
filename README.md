@@ -18,11 +18,18 @@ This PowerShell script automates the process of checking for the latest build of
 4. **Manage Old Builds**: The script retains only the latest 3 builds in the "Purpur Downloads" directory, deleting older builds to free up space.
 5. **Log Actions**: All actions are logged in a `purpur_download_log.txt` file for easy tracking and debugging.
 
+## Folder Structure
+
+- The script should be placed in the same directory as your `purpur.jar` file.
+- The main PurpurMC `.jar` file must be named `purpur.jar` for the script to correctly identify and manage it.
+- The script will create a subdirectory named `Purpur Downloads` to store and manage the latest builds.
+
 ## Usage
 
 1. **Download the Script**: Clone the repository or download the script directly.
-2. **Run the Script**: Open PowerShell and run the script. It will automatically perform all the actions described.
-3. **Check Logs**: Review the `purpur_download_log.txt` file for detailed logs of the script's actions.
+2. **First Run**: The first time you run this script, it will not know the version of your `purpur.jar`. In this instance, it will automatically download the latest version and replace your existing version. After this, the script will look for the previously downloaded version and compare it to the latest release (only downloading and replacing if the version is newer).
+3. **Auto Running**: To allow the script to check automatically for updates, it is advised that you set a scheduled task (using Windows Task Scheduler) to run this script at your desired interval (e.g., once a day). You will need the server to be offline to allow the script to replace the `.jar`, so you should schedule this during a period where the server is doing other tasks (for example, backup).
+4. **Script Logs**: Review the `purpur_download_log.txt` file for detailed logs of the script's actions.
 
 ## Requirements
 
@@ -36,4 +43,3 @@ Feel free to contribute to this project by submitting issues or pull requests. Y
 ## License
 
 This project is licensed under the MIT License.
-
